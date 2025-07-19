@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Bite & Bliss</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="style.css">
+  <script>
+    window.addEventListener('scroll', function () {
+      const navbar = document.getElementById('navbar');
+      if (window.scrollY > 10) {
+        navbar.classList.add('scrolled');
+      } else {
+        navbar.classList.remove('scrolled');
+      }
+    });
+  </script>
+  <style>
+    @keyframes fadeInUp {
+      0% { opacity: 0; transform: translateY(20px); }
+      100% { opacity: 1; transform: translateY(0); }
+    }
+    .animate-fade-in-up {
+      animation: fadeInUp 1s ease-out;
+    }
+    .navbar {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      background-color: #fefaf5;
+      z-index: 50;
+      transition: background-color 0.3s ease, box-shadow 0.3s ease;
+    }
+    .navbar.scrolled {
+      background-color: #f5e8d4;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    }
+    .nav-link {
+      position: relative;
+      padding: 4px 0;
+      transition: color 0.3s;
+      color: #8B5E3C;
+    }
+    .nav-link:hover {
+      color: #D9A299;
+    }
+    .nav-link::after {
+      content: '';
+      position: absolute;
+      left: 0;
+      bottom: -2px;
+      height: 2px;
+      width: 0;
+      background-color: #D9A299;
+      transition: width 0.3s ease-in-out;
+    }
+    .nav-link:hover::after {
+      width: 100%;
+    }
+  </style>
+</head>
+<body class="font-sans bg-[#F0E4D3] scroll-smooth pt-20">
+
+  <!-- Navigation Bar -->
+  <nav id="navbar" class="navbar">
+    <div class="max-w-7xl mx-auto px-4 py-4 flex justify-between items-center">
+      <h1 class="text-2xl font-bold text-[#8B5E3C]">Bite & Bliss</h1>
+      <ul class="flex space-x-6">
+        <li><a href="#menu" class="nav-link">Menu</a></li>
+        <li><a href="#reservations" class="nav-link">Reservations</a></li>
+        <li><a href="#chef" class="nav-link">Chef's Special</a></li>
+        <li><a href="#contact" class="nav-link text-sm">Contact</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <!-- Hero Section -->
+  <section class="h-screen flex items-center justify-center bg-cover bg-center" style="background-image: url('images/img1.jpg');">
+    <div class="bg-[#dcc5b2]/70 p-10 rounded-xl text-center animate-fade-in-up">
+      <h2 class="text-4xl md:text-5xl font-bold text-[#8B5E3C]">Where Every Bite Tells a Story</h2>
+    </div>
+  </section>
+
+  <!-- Menu Section -->
+  <section id="menu" class="section-bg bg-[#f5e8d9] px-6 py-10">
+    <h3 class="text-3xl font-bold text-[#8B5E3C] mb-2">Our Menu</h3>
+    <p class="text-lg text-gray-700 mb-6">Explore our handpicked dishes crafted with love.</p>
+    <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
+      <div class="flex justify-center items-center bg-white p-6 border rounded shadow hover:bg-[#ffe0c4] transition-transform duration-300 transform hover:scale-105 font-semibold">Starters</div>
+      <div class="flex justify-center items-center bg-white p-6 border rounded shadow hover:bg-[#ffe0c4] transition-transform duration-300 transform hover:scale-105 font-semibold">Main Course</div>
+      <div class="flex justify-center items-center bg-white p-6 border rounded shadow hover:bg-[#ffe0c4] transition-transform duration-300 transform hover:scale-105 font-semibold">Desserts</div>
+      <div class="flex justify-center items-center bg-white p-6 border rounded shadow hover:bg-[#ffe0c4] transition-transform duration-300 transform hover:scale-105 font-semibold">Beverages</div>
+      <div class="flex justify-center items-center bg-white p-6 border rounded shadow hover:bg-[#ffe0c4] transition-transform duration-300 transform hover:scale-105 font-semibold">Vegan Options</div>
+    </div>
+  </section>
+
+  <!-- Reservations Section -->
+  <section id="reservations" class="bg-cover bg-center text-white py-10 px-6" style="background-image: url('images/img2.jpg');">
+    <div class="bg-[#dcc5b2]/70 p-10 rounded-xl animate-fade-in-up">
+      <h3 class="text-3xl font-bold mb-2 text-white">Reservations</h3>
+      <p class="text-lg mb-6">Book your table for an unforgettable experience.</p>
+      <form class="max-w-md mx-auto space-y-4">
+        <input type="text" placeholder="Full Name" class="w-full px-4 py-2 rounded" required>
+        <input type="email" placeholder="Email Address" class="w-full px-4 py-2 rounded" required>
+        <input type="datetime-local" class="w-full px-4 py-2 rounded" required>
+        <textarea placeholder="Special Requests" class="w-full px-4 py-2 rounded"></textarea>
+        <button type="submit" class="bg-[#8B5E3C] hover:bg-[#D9A299] text-white px-6 py-2 rounded transition">Reserve Now</button>
+      </form>
+    </div>
+  </section>
+
+  <!-- Chef's Special -->
+  <section id="chef" class="section-bg-chef px-6 py-10">
+    <h3 class="text-3xl font-bold text-[#8B5E3C] mb-2">Chef's Special</h3>
+    <p class="text-lg text-gray-700 mb-6">Our chef’s top picks that delight every time.</p>
+    <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
+      <div class="border p-4 rounded shadow hover:shadow-lg transition-transform transform hover:scale-105 text-center">
+        <img src="images/dish1.jpg" alt="Dish 1" class="w-full h-40 object-cover rounded mb-2">
+        <h4 class="font-semibold text-[#8B5E3C]">Truffle Pasta</h4>
+      </div>
+      <div class="border p-4 rounded shadow hover:shadow-lg transition-transform transform hover:scale-105 text-center">
+        <img src="images/dish2.jpg" alt="Dish 2" class="w-full h-40 object-cover rounded mb-2">
+        <h4 class="font-semibold text-[#8B5E3C]">Lobster Bisque</h4>
+      </div>
+      <div class="border p-4 rounded shadow hover:shadow-lg transition-transform transform hover:scale-105 text-center">
+        <img src="images/dish3.jpg" alt="Dish 3" class="w-full h-40 object-cover rounded mb-2">
+        <h4 class="font-semibold text-[#8B5E3C]">Tandoori Platter</h4>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact Section -->
+  <section id="contact" class="section-bg px-6 py-10">
+    <h3 class="text-3xl font-bold text-[#8B5E3C] mb-2">Contact Us</h3>
+    <p class="text-lg text-gray-700 mb-4">Send us a message</p>
+    <form class="max-w-lg mx-auto space-y-4 animate-fade-in-up">
+      <input type="text" placeholder="Your Name" class="w-full px-4 py-2 rounded border" required>
+      <input type="email" placeholder="Your Email" class="w-full px-4 py-2 rounded border" required>
+      <textarea placeholder="Your Message" class="w-full px-4 py-2 rounded border" rows="4"></textarea>
+      <button type="submit" class="bg-[#8B5E3C] hover:bg-[#D9A299] text-white px-6 py-2 rounded transition">Send</button>
+    </form>
+  </section>
+
+  <!-- Footer -->
+  <footer class="bg-black text-white text-center py-6 mt-10">
+    <p class="text-sm">&copy; 2025 Bite & Bliss. All rights reserved.</p>
+  </footer>
+
+</body>
+</html>
